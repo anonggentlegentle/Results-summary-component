@@ -1,0 +1,238 @@
+:root {
+  --color-light-red: hsl(0, 100%, 67%);
+  --color-orange-yellow: hsl(39, 100%, 56%);
+  --color-green-teal: hsl(166, 100%, 37%);
+  --color-cobalt-blue: hsl(234, 85%, 45%);
+  --color-light-slate-blue: hsl(252, 100%, 67%);
+  --color-light-royal-blue: hsl(241, 81%, 54%);
+  --color-violet-blue: hsla(256, 72%, 46%, 1);
+  --color-persian-blue: hsla(241, 72%, 46%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-pale-blue: hsl(221, 100%, 96%);
+  --color-light-lavender: hsl(241, 100%, 89%);
+  --color-dark-gray-blue: hsl(224, 30%, 27%);
+
+  --gradient-background: linear-gradient(
+    to bottom,
+    hsl(252, 100%, 67%),
+    hsl(241, 81%, 54%)
+  );
+
+  --gradient-circle: linear-gradient(
+    to bottom,
+    hsla(256, 72%, 46%, 1),
+    hsla(241, 72%, 46%, 0)
+  );
+}
+
+$bp-1: 37.5em; // 600px
+$bp-2: 25em; // 400px
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  color-scheme: dark light;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "Hanken Grotesk", sans-serif;
+  background-color: var(--color-pale-blue);
+  font-size: 1.8rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  width: 100%;
+}
+
+.main {
+  width: min(100%, 65rem);
+  background-color: var(--color-white);
+  border-radius: 2.5rem;
+  margin: 0 1rem;
+
+  display: flex;
+
+  @media only screen and (max-width: $bp-1) {
+    flex-direction: column;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  &__result {
+    background-image: var(--gradient-background);
+    padding: 4rem 2.5rem;
+    color: var(--color-white);
+    border-radius: 2.5rem;
+
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 3rem;
+
+    @media only screen and (max-width: $bp-1) {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+    }
+  }
+
+  &__result-score {
+    border-radius: 50%;
+    padding: 3rem;
+    background-image: var(--gradient-circle);
+    width: 60%;
+    color: hsla(0, 0%, 100%, 0.7);
+    font-size: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media only screen and (max-width: $bp-1) {
+      width: 35%;
+    }
+
+    @media only screen and (max-width: $bp-2) {
+      width: 50%;
+    }
+
+    &--lg {
+      font-weight: 800;
+      font-size: 5.5rem;
+      color: var(--color-white);
+    }
+  }
+
+  &__result-description {
+    text-align: center;
+    color: hsla(0, 0%, 100%, 0.7);
+    font-size: 1.7rem;
+    width: 90%;
+  }
+
+  &__summary {
+    color: var(--color-dark-gray-blue);
+    padding: 4rem 2.5rem;
+
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+  }
+
+  &__summary-box {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+  }
+
+  &__summary-box-item {
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+
+    &--1 {
+      background-color: hsla(0, 100%, 67%, 0.2);
+
+      & .heading--3 {
+        color: var(--color-light-red);
+      }
+    }
+
+    &--2 {
+      background-color: hsla(39, 100%, 56%, 0.2);
+
+      & .heading--3 {
+        color: var(--color-orange-yellow);
+      }
+    }
+
+    &--3 {
+      background-color: hsla(166, 100%, 37%, 0.2);
+
+      & .heading--3 {
+        color: var(--color-green-teal);
+      }
+    }
+
+    &--4 {
+      background-color: hsla(234, 85%, 45%, 0.2);
+
+      & .heading--3 {
+        color: var(--color-cobalt-blue);
+      }
+    }
+  }
+
+  &__summary-score {
+    color: hsla(224, 30%, 27%, 0.651);
+    margin-left: auto;
+
+    &--main {
+      color: var(--color-dark-gray-blue);
+      font-weight: 700;
+    }
+  }
+}
+
+.heading {
+  &--1 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: hsla(0, 0%, 100%, 0.7);
+  }
+
+  &--2 {
+    font-weight: 700;
+  }
+
+  &--summary {
+    font-size: 2rem;
+  }
+
+  &--3 {
+    font-size: 1.8rem;
+  }
+}
+
+.btn {
+  &--continue {
+    border-radius: 100rem;
+    background-color: var(--color-dark-gray-blue);
+    border: none;
+    padding: 0.75em 1em;
+    font-size: 1.6rem;
+    color: var(--color-white);
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover,
+    &:active {
+      background-image: var(--gradient-background);
+    }
+  }
+}
